@@ -1,5 +1,4 @@
-# angular-14-registration-login-example
+# CIED Assignment
 
-Angular 14 - User Registration and Login Example
+Angular 14 - CIED Assignment
 
-Documentation at https://jasonwatmore.com/post/2022/11/29/angular-14-user-registration-and-login-example-tutorial

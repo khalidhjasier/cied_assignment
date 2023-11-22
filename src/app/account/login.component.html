@@ -1,0 +1,83 @@
+﻿<section class="vh-100" style="overflow: auto;">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="assets/img/login.PNG" class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-outline mb-5 mt-3">
+            <h2 class="h2 fw-bold">Welcome !</h2>
+            <p class="text-secondary">Login with username and password</p>
+          </div>
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form3Example3">Email address</label>
+            <input type="email" id="form3Example3" formControlName="username" class="form-control form-control-lg"
+              [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Enter a valid email address" />
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+              <div *ngIf="f.username.errors.required">Email is required</div>
+            </div>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-3 pwd">
+            <label class="form-label" for="form3Example4">Password</label>
+            <input type="password" id="form3Example4" class="form-control form-control-lg" formControlName="password"
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Enter password" />
+            <span class="p-viewer">
+              <a href="/" class="text-decoration-none small">Reset Password</a>
+            </span>
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+            </div>
+          </div>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button type="submit" [disabled]="loading" class="btn btn-primary btn-lg form-control">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+              Login
+            </button>
+            <p class="normal w-100 text-center mt-2 pt-1 mb-0">Don't have an account? <a routerLink="/"
+                class="link-danger">Signup</a></p>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .divider:after,
+  .divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+  }
+
+  .h-custom {
+    height: calc(100% - 0px);
+  }
+
+  @media (max-width: 450px) {
+    .h-custom {
+      height: 100%;
+    }
+
+    button.btn-primary.form-control {
+      background-color: #3454cf !important;
+    }
+  }
+
+  .pwd {
+    position: relative;
+  }
+
+  .p-viewer {
+    z-index: 9999;
+    position: absolute;
+    top: 53%;
+    right: 10px;
+  }
+</style>
